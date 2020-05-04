@@ -57,15 +57,15 @@ public class DisplayResults extends AppCompatActivity {
         //loads information from API
         getAPI();
         //get RecycleViewer
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.results);
+        RecyclerView rv = (RecyclerView) findViewById(R.id.results);
         //initialize data and makes list
         businesses = Business.createBusinessList(businessesArr);
         //passes information to adapter
         BusinessAdapter adapter = new BusinessAdapter(businesses);
         //populates recyclerviewer
-        recyclerView.setAdapter(adapter);
+        rv.setAdapter(adapter);
         //sets layout
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        rv.setLayoutManager(new LinearLayoutManager(this));
 
     }
     //go back and add error listeners later
