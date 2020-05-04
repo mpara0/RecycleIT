@@ -17,7 +17,7 @@
         app:srcCompat="@drawable/about" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/hButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home"
