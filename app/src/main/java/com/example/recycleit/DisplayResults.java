@@ -6,6 +6,8 @@
 package com.example.recycleit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,10 +23,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 public class DisplayResults extends AppCompatActivity {
 
     private String location;
-    private JSONArray businesses;
+    private JSONArray businessesArr;
+    private List<Business> businesses;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,31 +54,39 @@ public class DisplayResults extends AppCompatActivity {
                 DisplayResults.this.startActivity(intent);
             }
         });
+        //loads information from API
+        getAPI();
+        //get RecycleViewer
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.results);
+        //initialize data and makes list
+        businesses = Business.createBusinessList(businessesArr);
+        //passes information to adapter
+        BusinessAdapter adapter = new BusinessAdapter(businesses);
+        //populates recyclerviewer
+        recyclerView.setAdapter(adapter);
+        //sets layout
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     }
-    //thinking of making all businesses into map instead
-    /**
-    public JSONArray getAPI() {
+    //go back and add error listeners later
+    public void getAPI() {
         String url = "https://api.yelp.com/v3/businesses/search";
         url += "?term=recycle&location=" + location;
         RequestQueue queue = Volley.newRequestQueue(this);
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
-            //this method will determine how the information will be extracted and saved into a jsonarray
-
             public void onResponse(JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
+                    JSONObject business = null;
                     try {
-                        //handle exception
-                        JSONObject business = null;
-                        if (response.get(i).is_closed == false) {
-                            business = response.getJSONObject(i);
-                        }
-                    } catch {
-
+                        business = response.getJSONObject(i);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
+                    businessesArr.put(business);
                 }
             }
-        });
-    }**/
+        }, null);
+    }
 
 }

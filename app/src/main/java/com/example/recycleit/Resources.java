@@ -1,6 +1,7 @@
 /**
  * this page will contain information on recycling(what can and can't be recycled, etc)
  */
+
 package com.example.recycleit;
 
 import androidx.appcompat.app.AppCompatActivity;

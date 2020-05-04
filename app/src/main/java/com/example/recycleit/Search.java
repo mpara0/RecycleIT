@@ -35,7 +35,8 @@ public class Search extends AppCompatActivity {
                 Search.this.startActivity(intent);
             }
         });
-
+        //we should add something here to make sure the user doesn't input an empty box and we do the query w no parameters and crash our app
+        //use alertdialog for that
     }
 
 
