@@ -16,6 +16,7 @@ public class About extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+
         //button to return home
         findViewById(R.id.home).setOnClickListener(new View.OnClickListener() {
             @Override
