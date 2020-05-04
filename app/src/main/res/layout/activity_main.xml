@@ -10,28 +10,26 @@
         android:id="@+id/about"
         android:layout_width="267dp"
         android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="274dp"
         android:background="#E167DB6D"
         android:text="@string/about"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resources" />
+        app:layout_constraintTop_toBottomOf="@+id/resources"
+        app:layout_constraintVertical_bias="0.102" />
 
     <Button
         android:id="@+id/resources"
         android:layout_width="267dp"
         android:layout_height="48dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginTop="328dp"
         android:background="#E167DB6D"
         android:text="@string/resources"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.011" />
 
     <TextView
         android:id="@+id/textView"
@@ -51,11 +49,9 @@
         app:layout_constraintVertical_bias="0.267" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/startRecycling"
         android:layout_width="267dp"
         android:layout_height="48dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginBottom="25dp"
         android:background="#E167DB6D"
         android:text="@string/recycke"
         android:textAllCaps="true"
@@ -63,6 +59,7 @@
         app:layout_constraintBottom_toTopOf="@+id/resources"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.897" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
