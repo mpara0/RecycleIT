@@ -18,7 +18,7 @@ public class About extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         //button to return home
-        findViewById(R.id.hButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.home).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(About.this, MainActivity.class);

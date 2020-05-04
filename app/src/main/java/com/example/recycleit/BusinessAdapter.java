@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.nio.DoubleBuffer;
 import java.util.List;
 
 public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHolder> {
@@ -55,6 +56,7 @@ public class BusinessAdapter extends RecyclerView.Adapter<BusinessAdapter.ViewHo
         //loads image using business url and picasso
         ImageView imageView = viewHolder.businessImage;
         String url = newBusiness.getImage_url();
+
 
         Picasso.get().load(url).into(imageView);
 
