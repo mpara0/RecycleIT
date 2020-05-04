@@ -1,3 +1,7 @@
+/**
+ * our about page
+ */
+
 package com.example.recycleit;
 
 import androidx.appcompat.app.AppCompatActivity;
