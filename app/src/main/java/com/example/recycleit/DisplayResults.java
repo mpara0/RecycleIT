@@ -16,6 +16,7 @@ import android.view.View;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -86,7 +87,12 @@ public class DisplayResults extends AppCompatActivity {
                     businessesArr.put(business);
                 }
             }
-        }, null);
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println(error.toString());
+            }
+        });
     }
 
 }
