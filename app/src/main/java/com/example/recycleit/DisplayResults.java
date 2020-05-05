@@ -32,6 +32,7 @@ public class DisplayResults extends AppCompatActivity {
     private List<Business> businesses;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,12 +59,16 @@ public class DisplayResults extends AppCompatActivity {
         getAPI();
         //get RecycleViewer
         RecyclerView rv = (RecyclerView) findViewById(R.id.results);
+
         //initialize data and makes list
         businesses = Business.createBusinessList(businessesArr);
+
         //passes information to adapter
         BusinessAdapter adapter = new BusinessAdapter(businesses);
+
         //populates recyclerviewer
         rv.setAdapter(adapter);
+
         //sets layout
         rv.setLayoutManager(new LinearLayoutManager(this));
 
@@ -78,12 +83,19 @@ public class DisplayResults extends AppCompatActivity {
             public void onResponse(JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
                     JSONObject business = null;
+
+
                     try {
                         business = response.getJSONObject(i);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
                     businessesArr.put(business);
+                    System.out.println(businesses);
+
+
+
                 }
             }
         }, null);

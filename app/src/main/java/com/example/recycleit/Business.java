@@ -40,7 +40,7 @@ public class Business {
     //organizes information so that I can turn it into a list and get all the information from the JSON objects
     public static ArrayList<Business> createBusinessList(JSONArray businesses) {
         int businessesSize = businesses.length();
-        ArrayList<Business> businessList = new ArrayList<Business>();
+        ArrayList<Business> businessList = new ArrayList<>();
         ArrayList<String> addressList = new ArrayList<String>();
         for (int i = 0; i < businessesSize; i++) {
             //gets attributes from JSON array that was extracted from API
