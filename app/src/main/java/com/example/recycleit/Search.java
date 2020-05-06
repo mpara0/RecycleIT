@@ -48,10 +48,10 @@ public class Search extends AppCompatActivity {
         });
 
         //button to search
-        findViewById(R.id.find).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.locationzz).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search.this, test.class);
+                Intent intent = new Intent(Search.this, Testing.class);
                 Search.this.startActivity(intent);
             }
         });

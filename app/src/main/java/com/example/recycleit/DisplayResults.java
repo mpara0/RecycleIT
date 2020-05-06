@@ -119,14 +119,14 @@ public class DisplayResults extends AppCompatActivity {
                 String body;
                 String statusCode = String.valueOf(error.networkResponse.statusCode);
                 if (error.networkResponse.data != null) {
-                    try {
+              //      try {
                         body = error.networkResponse.data.toString();
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
+                //    } catch (UnsupportedEncodingException e) {
+                  //      e.printStackTrace();
                     }
-                    System.out.println(body);
+                    //System.out.println(body);
                 }
-            }
+            //}
         }) {
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
