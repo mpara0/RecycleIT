@@ -43,72 +43,23 @@ public class Business {
         ArrayList<Business> businessList = new ArrayList<Business>();
         ArrayList<String> addressList = new ArrayList<String>();
         for (int i = 0; i < businessesSize; i++) {
-            //gets attributes from JSON array that was extracted from API
-            JSONObject business = null;
-            JSONObject location = null;
-            String businessName = null;
-            String businessImageURL = null;
-            String businessStreetAddress = null;
-            String businessCity = null;
-            String businessZipcode = null;
-            String businessState = null;
-            String businessPhoneNum = null;
             try {
-                business = businesses.getJSONObject(i);
-                location = business.getJSONObject("location");
+                JSONObject business = businesses.getJSONObject(i);
+                JSONObject location = business.getJSONObject("location");
+                String streetAddress = location.getString("address1");
+                String city = location.getString("city");
+                String state = location.getString("state");
+                String zipCode = location.getString("zip_code");
+                String businessAddress = streetAddress + " " + city + ", " + state + " " + zipCode;
+                String businessImageurl = business.getString("image_url");
+                String businessPhoneNum = business.getString("phone");
+                String businessName = business.getString("name");
+                Business newBusiness = new Business(businessName, businessImageurl, businessPhoneNum,
+                        businessAddress);
+                businessList.add(newBusiness);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            //gets individual attributes
-            try {
-                businessName = business.getString("name");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try {
-                businessImageURL = business.getString("image_url");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try {
-                businessPhoneNum = location.getString("phone");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try {
-                businessStreetAddress = location.getString("address1");
-                addressList.add(businessStreetAddress);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try {
-                businessCity = location.getString("city");
-                addressList.add(businessCity);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try {
-                businessState = location.getString("state");
-                addressList.add(businessState);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            try {
-                businessZipcode = location.getString("zip_code");
-                addressList.add(businessZipcode);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            //makes address one string
-            String address = null;
-            for (int j = 0; j < addressList.size(); j++) {
-                address += addressList.get(i) + " ";
-            }
-            //creates business object for list and adds it
-            Business newBusiness = new Business(businessName, businessImageURL, businessPhoneNum,
-                    address);
-            businessList.add(newBusiness);
-
         }
         return businessList;
     }
