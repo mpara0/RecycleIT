@@ -5,6 +5,9 @@ Final Project
 RecycleIT is an Android Application to promote sustainability by encouraging users to recycle. 
 Our main feature of the app is the search bar where the user can input a city and locations of where to recycle will appear
 
+### Mock Up Design 
+![Alt Text](https://giphy.com/gifs/d5Ze93sdgZAzBjzBLI/html5)
+
 ### 🛠️ TOOLS USED 
 Android Studio, Yelp Fusion API, Volley, and RelativeLayout to display results (despite being buggy)
 
