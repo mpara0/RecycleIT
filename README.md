@@ -1,5 +1,5 @@
 # RecycleIT
-Final Project for CS125
+
 
 ### ABOUT 
 RecycleIT is an Android Application to promote sustainability by encouraging users to recycle. 
